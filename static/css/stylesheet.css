@@ -1,0 +1,27 @@
+body { 
+    background-color: aliceblue;
+}
+
+.table{
+    font-size: 13px;
+    text-align: center;
+    width: 95%;
+    margin : auto;
+    text-align: center;
+}
+
+.table tr:nth-child(odd){
+    background: rgba(147, 141, 150, 0.333);
+}
+
+.table tr:nth-child(even){
+    background: rgba(213, 144, 238, 0.2);
+}
+
+.success{
+    list-style: none;
+    background-color :#2e6da4;
+    color: white;
+    box-shadow: 12px 12px 12px #e61c66;
+    text-align: center;
+}

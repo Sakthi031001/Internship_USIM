@@ -1,0 +1,35 @@
+.navbar{
+    font-family:times new roman;
+    box-shadow:1px 1px 5px black;
+	padding:5px;
+}
+.navbar .navbar-brand{
+    font-size:21px;
+    color:white;
+}
+.navbar .navbar-brand:hover{
+    font-size:21px;
+    color:orange;
+}
+.navbar-inverse .navbar-nav>li>a {
+    color: white;
+	font-size:20px;
+
+}
+.navbar-inverse .navbar-nav>li>a:hover{
+    color: orange;
+	font-size:20px;
+}
+.color{
+	background-color:#154660;
+	border-color:#154660;
+}
+h1{
+	position:absolute;
+	top:50%;
+	left:50%;	
+	transform:translate(-50%,-50%);
+}
+.well{
+	box-shadow:2px 2px 15px 0px black;
+}
