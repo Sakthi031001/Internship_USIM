@@ -1,0 +1,274 @@
+{% extends "base.html" %}{% load bulma_tags %}
+{% block content %}
+<br>
+<section class="hero is-fullheight">
+    <div class="container">
+        <div class="card white-ter">
+            <div class="hero-body">
+                <form class="" method="POST" action="">{% csrf_token %}
+                    <div class="columns is-centered">
+                        <div class="column is-one-third">
+                            {{form.TITLE|bulma}}
+                        </div>
+
+                        <div class="column is-one-third">
+                            {{form.TARIKH|bulma}}
+                        </div>
+                        <div class="column is-one-third">
+                            {{form.MASA|bulma}}
+                        </div>
+                    </div>
+                    <div class="columns is-centered">
+                        {{form.TEMPAT|bulma}}
+                    </div>
+                    <div class="column is-centered">
+                        {{form.ANJURAN|bulma}}
+                    </div>
+                    <div class="column is-centered">
+                        {{form.TUJUAN|bulma}}
+                    </div>
+                    <div class="columns is-centered">
+                        {{form.LATAR_BELAKANG|bulma}}
+                    </div>
+                    <div class="column is-centered">
+                        {{form.ULASAN_PENTADBIRAN|bulma}}
+                    </div>
+                    <div class="column is-centered">
+                        {{form.Objektif_1|bulma}}
+                    </div>
+                    <div class="columns is-centered">
+                        {{form.Butiran_program|bulma}}
+                    </div>
+                    <div class="column is-centered">
+                        {{form.Tarikh_A|bulma}}
+                    </div>
+                    <div class="column is-centered">
+                        {{form.Tempat_A|bulma}}
+                    </div>
+                    <div class="columns is-centered">
+                        {{form.Sasaran_peserta|bulma}}
+                    </div>
+                    <div class="column is-centered">
+                        {{form.Jawatankuasa_Pelaksana|bulma}}
+                    </div>
+                    <div class="column is-centered">
+                        {{form.Atur_Cara|bulma}}
+                    </div>
+                    <div class="column is-centered">
+                        {{form.Implikasi_Kewangan|bulma}}
+                    </div>
+                    <div class="columns is-centered">
+                        {{form.SETIAUSAHA|bulma}}
+                    </div>
+                    <div class="column is-centered">
+                        {{form.BENDAHARI|bulma}}
+                    </div>
+                    <div class="column is-centered">
+                        {{form.JAWATANKUASA_PERALATAN_DAN_TEKNIKAL|bulma}}
+                    </div>
+                    <div class="columns is-centered">
+                        {{form.JAWATANKUASA_JEMPUTAN|bulma}}
+                    </div>
+                    <div class="column is-centered">
+                        {{form.JAWATANKUASA_AKTIVITI|bulma}}
+                    </div>
+                    <div class="column is-centered">
+                        {{form.Atur_Cara_B|bulma}}
+                    </div>
+                    <div class="columns is-centered">
+                        {{form.Tarikh_B|bulma}}
+                    </div>
+                    <div class="column is-centered">
+                        {{form.Masa_B|bulma}}
+                    </div>
+                    <div class="column is-centered">
+                        {{form.Tempat_B|bulma}}
+                    </div>
+
+                    
+                    {{ formset1.management_form }}
+                    
+                    
+
+                    <div>
+                    <table id="mytable" class="table is-fullwidth is-bordered is-hoverable is-striped">
+                                <tr>
+                                </tr>
+                                {% for form in formset1 %}
+                                <tr>
+                                    <td>{{form.Masa_B1}}</td>
+                                    <td>{{form.activity_B1}}</td>
+                                    <td>
+                                        <div class="input-group-append">
+                                            <button class="button is-small btn btn-success add-form-row">+</button>&nbsp;
+                                            <!-- <button class="button is-small btn btn-warning remove-form-row">-</button> -->
+                                        </div>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                    </table>
+                
+
+                
+                    
+                    {% for form in formset2 %}
+                    <table id="myamount">
+                        <input type="hidden" name="form2-TOTAL_FORMS" id="id_form2-TOTAL_FORMS" value="1">
+
+                        <tr>
+                            <tr>
+                                <th>SUBMER</th>
+                                <th>RM</th>
+                                <th></th>
+                            </tr>
+                        </tr>
+                        <tr>
+                            <td>{{form.value_1}}</td>
+                            <td>{{form.Amount_1}}</td>
+                            
+                            <td>
+                                <div class="input-group-append">
+                                    <button class="button is-small btn btn-success add-form-row2">+</button>&nbsp;
+                                    <!-- <button class="button is-small btn btn-warning remove-form-row">-</button> -->
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                    
+                    
+                    {% for form in formset3 %}
+                    <table id="myamountC">
+                        <input type="hidden" name="form3-TOTAL_FORMS" id="id_form3-TOTAL_FORMS" value="1">
+
+                        <tr>
+                            <th>PERBELANJAAN</th>
+                            <th>RM</th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td>{{form.value_C1}}</td>
+                            <td>{{form.Amount_C1}}</td>
+                            <td>
+                                <div class="input-group-append">
+                                    <button class="button is-small btn btn-success add-form-row3">+</button>&nbsp;
+                                    <!-- <button class="button is-small btn btn-warning remove-form-row">-</button> -->
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    {% endfor %}
+
+                    
+                    {% for form in formset4 %}
+                    <table id="myamountD">
+                        <input type="hidden" name="form4-TOTAL_FORMS" id="id_form4-TOTAL_FORMS" value="1">
+                        <tr>
+                            <td>{{form.field}}</td>
+                            <td>{{form.data}}</td>
+                            <td>
+                                <div class="input-group-append">
+                                    <button class="button is-small btn btn-success add-form-row4">+</button>&nbsp;
+                                    <!-- <button class="button is-small btn btn-warning remove-form-row">-</button> -->
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    {% endfor %}
+
+                    <div class="row spacer">
+                        <div class="col-4 offset-2">
+                            <button type="submit" class="button btn btn-block is-info is-half">Create</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+    {% endblock %}
+
+    {% block custom_js %}
+
+
+
+<script type="text/javascript">
+    
+    function cloneMore(selector, prefix) {
+        var newElement = $(selector).clone(true);
+        console.log(newElement);
+        var total = $('#id_' + prefix + '-TOTAL_FORMS').val();
+        newElement.find(':input:not([type=button]):not([type=submit]):not([type=reset])').each(function () {
+            var name = $(this).attr('name')
+            if (name) {
+                name = name.replace('-' + (total - 1) + '-', '-' + total + '-');
+                var id = 'id_' + name;
+                console.log('Setting ID to ' + id);
+                $(this).attr({ 'name': name, 'id': id }).val('').removeAttr('checked');
+            }
+        });
+        newElement.find('label').each(function () {
+            var forValue = $(this).attr('for');
+            if (forValue) {
+                forValue = forValue.replace('-' + (total - 1) + '-', '-' + total + '-');
+                $(this).attr({ 'for': forValue });
+            }
+        });
+        total++;
+        $('#id_' + prefix + '-TOTAL_FORMS').val(total);
+        $(selector).after(newElement);
+        
+        return false;
+    }
+    function deleteForm(prefix, btn) {
+        var total = parseInt($('#id_' + prefix + '-TOTAL_FORMS').val());
+        if (total > 1) {
+            btn.closest('.form-row').remove();
+            var forms = $('.form-row');
+            $('#id_' + prefix + '-TOTAL_FORMS').val(forms.length);
+            for (var i = 0, formCount = forms.length; i < formCount; i++) {
+                $(forms.get(i)).find(':input').each(function () {
+                    updateElementIndex(this, prefix, i);
+                });
+            }
+        }
+        return false;
+    }
+    
+    $(document).on('click', '.add-form-row', function (e) {
+        e.preventDefault();
+        cloneMore('#mytable tr:last', 'form');
+        return false;
+    });
+
+    $(document).on('click', '.add-form-row2', function (e) {
+        e.preventDefault();
+        cloneMore('#myamount tr:last', 'form2');
+        return false;
+    });
+    
+    $(document).on('click', '.add-form-row3', function (e) {
+        e.preventDefault();
+        cloneMore('#myamountC tr:last', 'form3');
+        return false;
+    });
+
+    $(document).on('click', '.add-form-row4', function (e) {
+        e.preventDefault();
+        cloneMore('#myamountD tr:last', 'form4');
+        return false;
+    });
+    
+    $(document).on('click', '.remove-form-row', function (e) {
+        e.preventDefault();
+        deleteForm('form', $(this));
+        return false;
+    });
+
+
+    
+</script>
+{% endblock %}

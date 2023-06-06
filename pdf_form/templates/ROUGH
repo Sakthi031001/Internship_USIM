@@ -1,0 +1,337 @@
+{% load static %}
+{% load crispy_forms_tags %}
+{% load bulma_tags %}
+{% block content %}
+
+
+<!DOCTYPE html>
+<html>
+    <head>  
+        <title>
+            {{title}}
+        </title>
+        <link href="{% static 'css/stylesheet.css' %}" rel="stylesheet"  >
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <link href="{% static 'css/bulma-calendar.min.css' %}" rel="stylesheet">
+    
+    </head>
+    <body>
+
+            <br>
+            <section class="hero is-fullheight">
+                <div class="container">
+                    <div class="card white-ter">
+                        <div class="hero-body">
+                            <style>
+                                input {max-height: 10px}
+                                input{max-width: 10cm}
+                                input{max-block-size: 1000px;}
+                                h1{text-decoration: solid;}
+                                h1{text-decoration-style: solid;}
+                                h1{text-align: center;}
+                                h6{text-decoration: solid;}
+                                h6{text-decoration-style: solid;}
+                                h6{text-align:center;}
+                                h2{text-decoration: solid;}
+                                h2{text-decoration-style: solid;}
+                                h2{text-align:center;}
+                                h5{text-align:right;}
+                                h4{text-align:center;}
+                                h3{text-decoration: solid;}
+                                h3{text-decoration-style: solid;}
+                                h3{text-align:left;}
+                                .hidden{
+                                    display: none;
+                                }
+                            </style>
+                            <form class="" method="POST" action="">{% csrf_token %}
+                                {{form.media}}
+                            <div class="col">
+                                <div class="form group row-md-6">
+                                        {{form.TITLE| as_crispy_field}}
+                                </div>
+                            </div>
+                            <hr>
+                            <br>
+                            <br>
+                            <div class="col">
+                                <div class="form group row-md-6">
+                                    <div class="form-col">
+
+                                            {{form.TARIKH| as_crispy_field}}
+                                            {{form.MASA| as_crispy_field}}
+                                    </div> 
+                                </div>
+                                <div class="form group row-md-6">                          
+                                    <div class="form-col">
+                                        {{form.TEMPAT| as_crispy_field}} 
+                                        {{form.ANJURAN| as_crispy_field}}                       
+                                    </div>
+                                </div>
+                            </div>
+                            <h6><centre> DENGAN KERJASAMA </centre></h6>
+                            <h6>PUSAT KEUSHAWANAN UNIVERSITI</h6>
+                            <br>
+                            <div class="col">
+                                <div class="form group row-md-6">                          
+                                    <div class="form-col">
+                                        {{form.TUJUAN| as_crispy_field}} 
+                                        {{form.LATAR_BELAKANG| as_crispy_field}}                       
+                                    </div>
+                                </div>                   
+                            </div>
+                            <br>
+                            <br>
+                            <h3>ULASAN_PENTADBIRAN</h3>
+                            <br>
+                            <div class="col">
+                                <div class="form group row-md-6">                          
+                                    <div class="form-col">
+                                        {{form.Objektif_1| as_crispy_field}}
+
+                                    </div>
+                                </div>
+                            </div>
+                            <h3>Butiran Program</h3>
+                            <br>
+                            <div class="col">
+                                <div class="form group row-md-6">                          
+                                    <div class="form-col">
+                                        {{form.Tarikh_A| as_crispy_field}}
+                                        {{form.Tempat_A| as_crispy_field}}
+                                        {{form.Sasaran_peserta| as_crispy_field}}
+                                        {{form.Jawatankuasa_Pelaksana| as_crispy_field}}
+                                        {{form.Atur_Cara| as_crispy_field}}
+                                        {{form.Implikasi_Kewangan| as_crispy_field}}
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                            <h5> LAMPIRAN A </h5>
+                            <h4>Jawatankuasa Pelaksana</h4>
+                            <h4>BENGKEL PEMANTAPAN KELAB PKUU</h4>
+                            <br>
+                            <div class="col">
+                                <div class="form group row-md-6">                          
+                                    <div class="form-col">
+                                        {{form.SETIAUSAHA| as_crispy_field}}
+                                        {{form.BENDAHARI| as_crispy_field}}
+                                        {{form.JAWATANKUASA_PERALATAN_DAN_TEKNIKAL| as_crispy_field}}
+                                        {{form.JAWATANKUASA_JEMPUTAN| as_crispy_field}}
+                                        {{form.JAWATANKUASA_AKTIVITI| as_crispy_field}}
+                                    </div>
+                                </div>
+                            </div>
+                            <h5> LAMPIRAN B </h5>
+                            <h5> {{form.Atur_Cara_B| as_crispy_field}} </h5>
+                            <div class="col">
+                                <div class="form group row-md-6">                          
+                                    <div class="form-col">
+                                        {{form.Tarikh_B| as_crispy_field}}
+                                        {{form.Masa_B| as_crispy_field}}
+                                        {{form.Tempat_B| as_crispy_field}}
+                                    </div>
+                                </div>
+                            </div>
+
+
+                                {{ formset1.management_form }}
+                                
+                                
+
+                                <div>
+                                <table id="mytable" class="table is-fullwidth is-bordered is-hoverable is-striped">
+                                            <tr>
+                                                <th>MASA</th>
+                                                <th>ACTIVITY</th>
+                                                <th></th>
+                                            </tr>
+                                            {% for form in formset1 %}
+                                            <tr>
+                                                <td>{{form.Masa_B1}}</td>
+                                                <td>{{form.activity_B1}}</td>
+                                                <td>
+                                                    <div class="input-group-append">
+                                                        <button class="button is-small btn btn-success add-form-row">+</button>&nbsp;
+                                                        <!-- <button class="button is-small btn btn-warning remove-form-row">-</button> -->
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+                                </table>
+                            
+
+                            
+                                
+                                {% for form in formset2 %}
+                                <table id="myamount" class="table is-fullwidth is-bordered is-hoverable is-striped">
+                                    <input type="hidden" name="form2-TOTAL_FORMS" id="id_form2-TOTAL_FORMS" value="1">
+
+                                    <tr>
+                                        <tr>
+                                            <th>SUBMER</th>
+                                            <th>RM</th>
+                                            <th></th>
+                                        </tr>
+                                    </tr>
+                                    <tr>
+                                        <td>{{form.value_1}}</td>
+                                        <td>{{form.Amount_1}}</td>
+                                        
+                                        <td>
+                                            <div class="input-group-append">
+                                                <button class="button is-small btn btn-success add-form-row2">+</button>&nbsp;
+                                                <!-- <button class="button is-small btn btn-warning remove-form-row">-</button> -->
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </table>
+                                
+                                
+                                {% for form in formset3 %}
+                                <table id="myamountC" class="table is-fullwidth is-bordered is-hoverable is-striped">
+                                    <input type="hidden" name="form3-TOTAL_FORMS" id="id_form3-TOTAL_FORMS" value="1">
+
+                                    <tr>
+                                        <th>PERBELANJAAN</th>
+                                        <th>RM</th>
+                                        <th></th>
+                                    </tr>
+                                    <tr>
+                                        <td>{{form.value_C1}}</td>
+                                        <td>{{form.Amount_C1}}</td>
+                                        <td>
+                                            <div class="input-group-append">
+                                                <button class="button is-small btn btn-success add-form-row3">+</button>&nbsp;
+                                                <!-- <button class="button is-small btn btn-warning remove-form-row">-</button> -->
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                {% endfor %}
+
+                                
+                                {% for form in formset4 %}
+                                <table id="myamountD" class="table is-fullwidth is-bordered is-hoverable is-striped">
+                                    <tr>
+                                        <th>FIELD</th>
+                                        <th>DATA</th>
+                                        <th></th>
+                                    </tr>
+                                    <input type="hidden" name="form4-TOTAL_FORMS" id="id_form4-TOTAL_FORMS" value="1">
+                                    <tr>
+                                        <td>{{form.field}}</td>
+                                        <td>{{form.data}}</td>
+                                        <td>
+                                            <div class="input-group-append">
+                                                <button class="button is-small btn btn-success add-form-row4">+</button>&nbsp;
+                                                <!-- <button class="button is-small btn btn-warning remove-form-row">-</button> -->
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                {% endfor %}
+
+                                <div class="row spacer">
+                                    <div class="col-4 offset-2">
+                                        <button type="submit" class="button btn btn-block is-info is-half">Create</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+                {% endblock %}
+
+                {% block custom_js %}
+        </body>
+    
+
+
+
+    <script type="text/javascript">
+        
+        function cloneMore(selector, prefix) {
+            var newElement = $(selector).clone(true);
+            console.log(newElement);
+            var total = $('#id_' + prefix + '-TOTAL_FORMS').val();
+            newElement.find(':input:not([type=button]):not([type=submit]):not([type=reset])').each(function () {
+                var name = $(this).attr('name')
+                if (name) {
+                    name = name.replace('-' + (total - 1) + '-', '-' + total + '-');
+                    var id = 'id_' + name;
+                    console.log('Setting ID to ' + id);
+                    $(this).attr({ 'name': name, 'id': id }).val('').removeAttr('checked');
+                }
+            });
+            newElement.find('label').each(function () {
+                var forValue = $(this).attr('for');
+                if (forValue) {
+                    forValue = forValue.replace('-' + (total - 1) + '-', '-' + total + '-');
+                    $(this).attr({ 'for': forValue });
+                }
+            });
+            total++;
+            $('#id_' + prefix + '-TOTAL_FORMS').val(total);
+            $(selector).after(newElement);
+            
+            return false;
+        }
+        function deleteForm(prefix, btn) {
+            var total = parseInt($('#id_' + prefix + '-TOTAL_FORMS').val());
+            if (total > 1) {
+                btn.closest('.form-row').remove();
+                var forms = $('.form-row');
+                $('#id_' + prefix + '-TOTAL_FORMS').val(forms.length);
+                for (var i = 0, formCount = forms.length; i < formCount; i++) {
+                    $(forms.get(i)).find(':input').each(function () {
+                        updateElementIndex(this, prefix, i);
+                    });
+                }
+            }
+            return false;
+        }
+        
+        $(document).on('click', '.add-form-row', function (e) {
+            e.preventDefault();
+            cloneMore('#mytable tr:last', 'form');
+            return false;
+        });
+
+        $(document).on('click', '.add-form-row2', function (e) {
+            e.preventDefault();
+            cloneMore('#myamount tr:last', 'form2');
+            return false;
+        });
+        
+        $(document).on('click', '.add-form-row3', function (e) {
+            e.preventDefault();
+            cloneMore('#myamountC tr:last', 'form3');
+            return false;
+        });
+
+        $(document).on('click', '.add-form-row4', function (e) {
+            e.preventDefault();
+            cloneMore('#myamountD tr:last', 'form4');
+            return false;
+        });
+        
+        $(document).on('click', '.remove-form-row', function (e) {
+            e.preventDefault();
+            deleteForm('form', $(this));
+            return false;
+        });
+
+
+        
+    </script>
+    {% endblock %}
+    </html>

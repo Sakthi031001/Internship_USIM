@@ -1,0 +1,289 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" type="text/css" rel='stylesheet'>
+
+        <link href="{% static 'css/stylesheet.css' %}" rel="stylesheet">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>Invoice</title>
+        <meta name="description" content="Invoice demo sample">
+	    <style>
+		    /* important style for the xhtml2pdf*/
+            @page {
+            size: A4;
+            margin: 2cm;
+            }
+		    table {
+                -pdf-keep-in-frame-mode: shrink;
+                -pdf-keep-with-next: true;
+                }
+            img{text-align: center;}
+            h1{text-decoration: solid;}
+            h1{text-decoration-style: solid;}
+            h1{text-align: center;}
+            h5{text-decoration: solid;}
+            h5{text-decoration-style: solid;}
+            h5{text-align: center;}
+            h5{font-size: 4;}
+            h4{text-decoration-style: solid;}
+            h4{text-align: left;}
+            h4{font-size: 4;}
+            h3{text-align: justify;}
+            h3{font-size: 4;}
+            h2{text-align: right;}
+            h2{font-size: 4;}
+            h6{text-decoration: none;}
+            h6{text-decoration-style:none ;}
+            h6{text-align: center;}
+            h6{font-size: 4;}
+            p{text-align: justify;}
+            p{font-size: 4;}
+            hr { display: block;}
+            hr{margin-left: 0.5em; margin-right: 0.5em; margin-block-start: auto;
+                 margin-block-end: auto; overflow: hidden; border-style: inset; border-width: 1px;}
+            tr{text-align: center;}
+            tr{font-size: 4;}
+            th{text-align: center;}
+            th{font-size: 4;}
+            td{text-align: center;}
+            td{font-size: 4;}
+            .margin{
+                margin-left: 20px;
+            }
+            .tab1 {
+            tab-size: 2
+            }
+            .line{
+                line-height: 10px;
+            }
+            
+	    </style>
+    </head>
+    <body>
+        <br>
+        <br>
+        <br>
+        <center><img src="C:\Users\Admin\_Dashboard_\pdf_form\Static\img\usim-png.png" height='3cm' width="3cm" ></center>
+        <br>
+        <br>
+        {{queryset.TITLE|safe}}
+        <br>
+        <br>
+        <br>
+        <hr>
+        <br>
+        <br>
+        <h5>TARIKH</h5>
+        <h6>{{queryset.TARIKH}}</h6>
+        <br>
+        <h5>MASA</h5>
+        <h6>{{queryset.MASA}}</h6>
+        <br>
+        <h5>TEMPAT</h5>
+        <h6>{{queryset.TEMPAT}}</h6>
+        <br>
+        <h5>ANJURAN</h5>
+        <h6>{{queryset.ANJURAN}}</h6>
+        <br>
+        <h5>DENGAN KERJASAMA</h5>
+        <h5>PUSAT KEUSAHAWANAN UNIVERSITI</h5>
+
+        <pdf:nextpage>
+        {{queryset.TITLE|safe}}
+        <h3>1.  TUJUAN</h3>
+        <p>{{queryset.TUJUAN}}</p>
+        <h3>2.  LATAR BELAKANG</h3>
+        <p>{{queryset.LATAR_BELAKANG}}</p>
+        <h3>ULASAN PENTADBIRAN</h3>
+        <h3>3.1 Objektif</h3>
+        <table style="margin-left: 1.5cm;width: 100%;"  >
+            <tr>
+                <th style="width: 10%;"></th>
+                <th style="width: 90%;"></th>
+            </tr>
+            <tr>
+                <td style="text-align: left;">3.1.1</td>
+                <td style="text-align:justify;">{{queryset.Objektif_1}}</td>
+            </tr>
+        </table>
+        <pdf:nextpage>
+            <div class="line">
+            <h3>3.2   Butiran Program</h3>
+            <h3 style="margin-left: 2cm;">3.2.1 &emsp; TARIKH</h3>
+            <p style="margin-left: 3cm;text-align: left;">{{queryset.Tarikh_A}}</p>
+            <h3 style="margin-left: 2cm;">3.2.2 &emsp; Tempat_A</h3>
+            <p style="margin-left: 3cm;text-align: left;">{{queryset.Tarikh_A}}</p>
+            <h3 style="margin-left: 2cm;">3.2.3 &emsp;  Sasaran peserta</h3>
+            <p style="margin-left: 3cm;text-align: left;">{{queryset.Sasaran_peserta}}</p>
+            <h3 style="margin-left: 2cm;">3.2.4  &emsp; Jawatankuasa Pelaksana</h3>
+            <p style="margin-left:3cm;text-align: left;">{{queryset.Jawatankuasa_Pelaksana}}</p>
+            <h3 style="margin-left: 2cm;">3.2.5 &emsp;  Atur Cara</h3>
+            <p style="margin-left: 3cm;text-align: left;">{{queryset.Atur_Cara}}</p>
+            <h3 style="margin-left: 2cm;">3.2.6 &emsp;  Implikasi Kewangan</h3>
+            <p style="margin-left: 3cm;text-align: left;">{{queryset.Implikasi_Kewangan}}</p>
+            <h4>4.  PERAKUAN</h4>
+            <p style="line-height: 1.5;">Pusat Keusahawanan Universiti dengan hormatnya diminta meneliti kertas kerja ini dan jika dipersetujui meluluskan cadangan
+                 pelaksanaan {{queryset.Atur_Cara_B}} sebagaimana yang dikemukakan
+            </p>
+            <br>
+            <p style="text-align: left;">Disediakan oleh:</p>
+            <br>
+            <h3>(MUHAMMAD SHAHMI BIN SULAIMAN NASUTION)</h3>
+            <p style="text-align: left;">Pembantu Tadbir</p>
+            <p style="text-align: left;">Pusat Keusahawanan Universiti (PKUU)</p>
+            <p style="text-align: left;">Tarikh : </p>
+            <br>
+            <p style="text-align: left;">Disemak oleh:</p>
+            <br>
+            <h3>(MUHAMMAD SHAHMI BIN SULAIMAN NASUTION)</h3>
+            <p style="text-align: left;">Pembantu Tadbir</p>
+            <p style="text-align: left;">Pusat Keusahawanan Universiti (PKUU)</p>
+            <p style="text-align: left;">Tarikh : </p>
+            <br>
+            <p style="text-align: left;">Disemak oleh:</p>
+            <br>
+            <h3>( Prof Madya Ts. Dr. Sundresan Perumal)</h3>
+            <p style="text-align: left;">Pengarah</p>
+            <p style="text-align: left;">Pusat Keusahawanan Universiti (PKUU)</p>
+            <p style="text-align: left;">Tarikh : </p>
+            </div>
+
+
+        <pdf:nextpage>
+            <h2>LAMPIRAN A</h2>
+            <h5>JAWATANKUASA PELAKSANA</h5>
+            <h5>BENGKEL PEMANTAPAN KELAB PKUU</h5>
+            <hr>
+
+            <h5>PENAUNG</h5>
+            <p style="text-align: center;">Profesor Dr. Adnan Mohamed Yusoff</p>
+            <p style="text-align: center;">Timbalan Naib Canselor (Hal Ehwal Pelajar dan Alumni)</p>
+
+            <h5>PENASIHAT</h5>
+            <p style="text-align: center;">Prof Madya Ts. Dr. Sundresan Perumal</p>
+            <p style="text-align: center;">Pengarah</p>
+            <p style="text-align: center;">Pusat Keusahawanan Universiti</p>
+
+            <h5>PENYELARAS</h5>
+            <p style="text-align: center;">Encik Marwan Bin Tahir</p>
+            <p style="text-align: center;">Timbalan Pengarah</p>
+            <p style="text-align: center;">Pusat Keusahawanan Universiti</p>
+
+            <h5>PENGARAH</h5>
+            <p style="text-align: center;">Muhammad Shahmi bin Sulaiman Nasution</p>
+
+            <h5>TIMBALAN PENGARAH</h5>
+            <p style="text-align: center;">Mohd Fatykamal Bin Ahmad Afandi</p>
+
+            <h5>SETIAUSAHA</h5>
+            <p style="text-align: center;">{{queryset.SETIAUSAHA}}</p>
+
+            <h5>BENDAHARI</h5>
+            <p style="text-align: center;">{{queryset.BENDAHARI}}</p>
+
+            <h5>JAWATANKUASA PERALATAN DAN TEKNIKAL</h5>
+            <p style="text-align: center;">{{queryset.JAWATANKUASA_PERALATAN_DAN_TEKNIKAL}}</p>
+
+            <h5>JAWATANKUASA JEMPUTAN</h5>
+            <p style="text-align: center;">{{queryset.JAWATANKUASA_JEMPUTAN}}</p>
+
+            <h5>JAWATANKUASA AKTIVITI</h5>
+            <p style="text-align: center;">{{queryset.JAWATANKUASA_AKTIVITI}}</p>
+
+        <pdf:nextpage>
+            <h2>LAMPIRAN B</h2>
+            <h5>ATUR CARA</h5>
+            <p style="text-align: center;">{{queryset.Atur_Cara_B}}</p>
+            <table >
+                <tr>
+                    <th style="width: auto;margin-left: 3cm;margin-right: 3cm;"></th>
+                    <th style="width: auto;"></th>
+                </tr>
+                <tr>
+                    <td style="text-align: right;margin-right: 0.5cm;">Tarikh</td>
+                    <td style="text-align: left;margin-left: 0.5cm;">{{queryset.Tarikh_B}}</td>
+                </tr>
+                <tr>
+                    <td style="text-align: right;margin-right: 0.5cm;">Masa</td>
+                    <td style="text-align: left;margin-left: 0.5cm;">{{queryset.Masa_B}}</td>
+                </tr>
+                <tr>
+                    <td style="text-align: right;margin-right: 0.5cm;">Tempat</td>
+                    <td style="text-align: left;margin-left: 0.5cm;">{{queryset.Tempat_B}}</td>
+                </tr>
+            </table>
+            <br>
+            <br>
+            <div style="margin-left: 1cm;">
+                <table >
+                    <tr>
+                        <th style="width: 25%;"></th>
+                        <th style="width: 75%;"></th>
+                    </tr>
+                    {% for item in lineitem %}
+                    <tr>
+                        
+                        <td style="height: 1.5;text-align: left;margin-right: 1cm;">{{item.Masa_B1}}</td>
+                        <td style="height: 1.5;text-align: left;">{{item.activity_B1}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            <pdf:nextpage>
+                <h2>LAMPIRAN C</h2>
+                <h5>IMPLIKASI KEWANGAN</h5>
+                <h5>{{Atur_Cara_B}}</h5>
+    
+                <table style="border: 1px solid white;">
+                    <thead>
+                        <tr style="background-color: gray;">
+                            <th style="width: 10%;height: 0.75cm;"></th>
+                            <th style="width: 75%;height: 0.75cm;">SUMBER</th>
+                            <th style="width: 15%;height: 0.75cm;">RM</th>
+                        </tr>
+                    </thead>
+                    {% for item in lampiranc %}
+                    <tr>
+                        <td style="height: 1.5cm;">{{for.count}}</td>
+                        <td style="height: 1.5cm;">{{item.value_1}}</td>
+                        <td style="height: 1.5cm;">{{item.Amount_1}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                <br>
+                <table style="border: 1px solid white;">
+                    <thead>
+                        <tr style="background-color: gray;">
+                            <th style="width: 10%;height: 0.75cm;">B)</th>
+                            <th style="width: 75%;height: 0.75cm;">PERBELANJAAN</th>
+                            <th style="width: 15%;height: 0.75cm;">RM</th>
+                        </tr>
+                    </thead>
+                    {% for item in lampirand %}
+                    <tr>
+                        <td style="height: 1.5cm;">{{for.count}}</td>
+                        <td style="height: 1.5cm;">{{item.value_c1}}</td>
+                        <td style="height: 1.5cm;">{{item.Amount_c1}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            <pdf:nextpage>
+                <h2>LAMPIRAN D</h2>
+                <h5>BIODATA PENCERAMAH</h5>
+                <h5>{{Atur_Cara_B}}</h5>
+                <table >
+                    <tr>
+                        <th style="width: 30%;"></th>
+                        <th style="width: 70%;"></th>
+                    </tr>
+                    {% for item in lampirand %}
+                    <tr>
+                        <td style="text-decoration-style: solid ;height: 1.5cm;text-align: left;">{{item.Data1}}</td>
+                        <td style="height: 1.5cm;text-align: left;">{{item.entry1}}</td>
+                    </tr>
+                    {% endfor %}
+                    
+                </table>
+        </body>
+    </html>

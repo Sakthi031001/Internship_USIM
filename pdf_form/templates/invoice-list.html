@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="columns is-centered has-text-centered">
+    <div class="column is-half">
+        <div class="card has-background-white-ter">
+            <h1 class="title is-3"></h1>
+        </div>
+    </div>
+</div>
+<form action="{% url 'invoice:invoice-list' %}" method="post">{% csrf_token %}
+    <div class="card">
+        <header class="card-header">
+            <p class="card-header-title">
+                All Orders / Change Order Status &nbsp;<button class="button is-rounded is-info">
+                    <a href="{% url 'invoice:invoice-create' %}" class="has-text-white">Create Invoice</a></button>
+            </p>
+        </header>
+        <div class="card-content">
+            <div class="content">
+
+                <table class="table is-fullwidth is-bordered is-hoverable is-striped">
+                    <tbody>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>INVOICE</th>
+                                <th>TITLE</th>
+                                <th>ATUR CARA</th>
+                                <th>TARIKH</th>
+                                <th>TOTAL</th>
+                                
+                                <th>View</th>
+                                <th>DOWNLOAD</th>
+
+                            </tr>
+                        </thead>
+                        {% for invoice in invoices %}
+                        <tr>
+                            <td><input class="checkbox" type="checkbox" value="{{invoice.id}}" name="invoice_id" size="1" />
+                            </td>
+                            <td width="1%">#{{invoice.id}}</td>
+                            <td width="9%">{{invoice.TITLE}}</td>
+                            <td> {{invoice.Atur_Cara_B}}</td>
+                            <td> {{invoice.TARIKH}} </td>
+                            <td>{{invoice.JUMLAH_KESELURUHAN_1}}</td>
+                            
+                            <td width="1%"><a href="{% url 'invoice:invoice-detail' id=invoice.id %}">
+                                <div class="button is-small is-info">View</div>
+                            </a></td>
+                            <td width="1%"><a href="{% url 'invoice:invoice-download' id=invoice.id %}">Download</a></td>
+                        </tr>
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div><br /><br /><br />
+</form>
+
+{% endblock content %}

@@ -1,0 +1,198 @@
+<!DOCTYPE html>{% load static%}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Example 2</title>
+    <link rel="stylesheet" href="{%static 'css/invoice-template-1.css' %}" media="all" />
+  </head>
+  <body>
+    <header class="clearfix">
+      <div id="logo">
+         
+      </div>
+      <div style="text-align: center;">
+        {{TITLE|safe}}
+        </div>
+        <br>
+        <br>
+        <br>
+        <hr>
+        <br>
+        <br>
+        <h5>TARIKH</h5>
+        <h6>{{TARIKH}}</h6>
+        <br>
+        <h5>MASA</h5>
+        <h6>{{MASA}}</h6>
+        <br>
+        <h5>TEMPAT</h5>
+        <h6>{{TEMPAT}}</h6>
+        <br>
+        <h5>ANJURAN</h5>
+        <h6>{{ANJURAN}}</h6>
+        <br>
+        <h5>DENGAN KERJASAMA</h5>
+        <h5>PUSAT KEUSAHAWANAN UNIVERSITI</h5>
+
+        <pdf:nextpage>
+        {{TITLE|safe}}
+        <h3>1.  TUJUAN</h3>
+        <p>{{TUJUAN}}</p>
+        <h3>2.  LATAR BELAKANG</h3>
+        {{LATAR_BELAKANG}}
+        <h3>ULASAN PENTADBIRAN</h3>
+        <h3>3.1 Objektif</h3>
+        {{Objektif_1}}
+         
+        <pdf:nextpage>
+            <div class="line">
+            <h3>3.2   Butiran Program</h3>
+            <h3 style="margin-left: 2cm;">3.2.1 &emsp; TARIKH</h3>
+            <p style="margin-left: 3cm;text-align: left;">{{Tarikh_A}}</p>
+            <h3 style="margin-left: 2cm;">3.2.2 &emsp; Tempat_A</h3>
+            <p style="margin-left: 3cm;text-align: left;">{{Tarikh_A}}</p>
+            <h3 style="margin-left: 2cm;">3.2.3 &emsp;  Sasaran peserta</h3>
+            <p style="margin-left: 3cm;text-align: left;">{{Sasaran_peserta}}</p>
+            <h3 style="margin-left: 2cm;">3.2.4  &emsp; Jawatankuasa Pelaksana</h3>
+            <p style="margin-left:3cm;text-align: left;">{{Jawatankuasa_Pelaksana}}</p>
+            <h3 style="margin-left: 2cm;">3.2.5 &emsp;  Atur Cara</h3>
+            <p style="margin-left: 3cm;text-align: left;">{{Atur_Cara}}</p>
+            <h3 style="margin-left: 2cm;">3.2.6 &emsp;  Implikasi Kewangan</h3>
+            <p style="margin-left: 3cm;text-align: left;">{{Implikasi_Kewangan}}</p>
+            <h4>4.  PERAKUAN</h4>
+            <p style="line-height: 1.5;">Pusat Keusahawanan Universiti dengan hormatnya diminta meneliti kertas kerja ini dan jika dipersetujui meluluskan cadangan
+                 pelaksanaan {{Atur_Cara_B}} sebagaimana yang dikemukakan
+            </p>
+            <br>
+            <p style="text-align: left;">Disediakan oleh:</p>
+            <br>
+            <h3>(MUHAMMAD SHAHMI BIN SULAIMAN NASUTION)</h3>
+            <p style="text-align: left;">Pembantu Tadbir</p>
+            <p style="text-align: left;">Pusat Keusahawanan Universiti (PKUU)</p>
+            <p style="text-align: left;">Tarikh : </p>
+            <br>
+            <p style="text-align: left;">Disemak oleh:</p>
+            <br>
+            <h3>(MUHAMMAD SHAHMI BIN SULAIMAN NASUTION)</h3>
+            <p style="text-align: left;">Pembantu Tadbir</p>
+            <p style="text-align: left;">Pusat Keusahawanan Universiti (PKUU)</p>
+            <p style="text-align: left;">Tarikh : </p>
+            <br>
+            <p style="text-align: left;">Disemak oleh:</p>
+            <br>
+            <h3>( Prof Madya Ts. Dr. Sundresan Perumal)</h3>
+            <p style="text-align: left;">Pengarah</p>
+            <p style="text-align: left;">Pusat Keusahawanan Universiti (PKUU)</p>
+            <p style="text-align: left;">Tarikh : </p>
+            </div>
+
+
+        <pdf:nextpage>
+            <h2>LAMPIRAN A</h2>
+            <h5>JAWATANKUASA PELAKSANA</h5>
+            <h5>BENGKEL PEMANTAPAN KELAB PKUU</h5>
+            <hr>
+
+            <h5>PENAUNG</h5>
+            <p style="text-align: center;">Profesor Dr. Adnan Mohamed Yusoff</p>
+            <p style="text-align: center;">Timbalan Naib Canselor (Hal Ehwal Pelajar dan Alumni)</p>
+
+            <h5>PENASIHAT</h5>
+            <p style="text-align: center;">Prof Madya Ts. Dr. Sundresan Perumal</p>
+            <p style="text-align: center;">Pengarah</p>
+            <p style="text-align: center;">Pusat Keusahawanan Universiti</p>
+
+            <h5>PENYELARAS</h5>
+            <p style="text-align: center;">Encik Marwan Bin Tahir</p>
+            <p style="text-align: center;">Timbalan Pengarah</p>
+            <p style="text-align: center;">Pusat Keusahawanan Universiti</p>
+
+            <h5>PENGARAH</h5>
+            <p style="text-align: center;">Muhammad Shahmi bin Sulaiman Nasution</p>
+
+            <h5>TIMBALAN PENGARAH</h5>
+            <p style="text-align: center;">Mohd Fatykamal Bin Ahmad Afandi</p>
+
+            <h5>SETIAUSAHA</h5>
+            <p style="text-align: center;">{{SETIAUSAHA}}</p>
+
+            <h5>BENDAHARI</h5>
+            <p style="text-align: center;">{{BENDAHARI}}</p>
+
+            <h5>JAWATANKUASA PERALATAN DAN TEKNIKAL</h5>
+            <p style="text-align: center;">{{JAWATANKUASA_PERALATAN_DAN_TEKNIKAL}}</p>
+
+            <h5>JAWATANKUASA JEMPUTAN</h5>
+            <p style="text-align: center;">{{JAWATANKUASA_JEMPUTAN}}</p>
+
+            <h5>JAWATANKUASA AKTIVITI</h5>
+            <p style="text-align: center;">{{JAWATANKUASA_AKTIVITI}}</p>
+
+        <pdf:nextpage>
+            <h2>LAMPIRAN B</h2>
+            <h5>ATUR CARA</h5>
+            <p style="text-align: center;">{{Atur_Cara_B}}</p>
+            <table >
+                <tr>
+                    <th style="width: auto;margin-left: 3cm;margin-right: 3cm;"></th>
+                    <th style="width: auto;"></th>
+                </tr>
+                <tr>
+                    <td style="text-align: right;margin-right: 0.5cm;">Tarikh</td>
+                    <td style="text-align: left;margin-left: 0.5cm;">{{Tarikh_B}}</td>
+                </tr>
+                <tr>
+                    <td style="text-align: right;margin-right: 0.5cm;">Masa</td>
+                    <td style="text-align: left;margin-left: 0.5cm;">{{Masa_B}}</td>
+                </tr>
+                <tr>
+                    <td style="text-align: right;margin-right: 0.5cm;">Tempat</td>
+                    <td style="text-align: left;margin-left: 0.5cm;">{{Tempat_B}}</td>
+                </tr>
+                </table>
+      <table>
+			{% for item in lineitem %}
+          <tr>
+            
+            <td >{{item.Masa_B1}}</td>
+            <td >{{item.activity_B1}}</td>
+            
+		  </tr>
+      {% endfor %}
+    </table>
+    
+
+    
+    <table>
+      {% for item in lampiranc %}
+      <tr>
+        <td >{{item.value_1}}</td>
+        <td >{{item.Amount_1}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    
+
+    
+    <table>
+      {% for item in lampiranc2 %}
+      <tr>
+        <td >{{item.value_C1}}</td>
+        <td >{{item.Amount_C1}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    
+
+    
+    <table>
+      {% for item in lampirand %}
+      <tr>
+        <td >{{item.field}}</td>
+        <td >{{item.data}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+		  
+  </body>
+</html>

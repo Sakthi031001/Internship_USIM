@@ -1,0 +1,10 @@
+{% include "authentication/header.html" %}
+{% include "authentication/navbar.html" %}
+
+{% block content %}		
+	{% if user.is_authenticated %}				
+		<h1>Welcome : {{user.username}}<h1>					
+	{% else %}
+		<h1>Home Page</h1>
+	{% endif %}	
+{% endblock %}
