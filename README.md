@@ -8,7 +8,7 @@ create a virtual environment
 
 
 
-enter the code
+#**enter the code**
 
   pip install django
     
